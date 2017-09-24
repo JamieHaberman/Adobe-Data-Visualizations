@@ -1,19 +1,211 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>daaattaaaaa</title>
-
+<!DOCTYPE html>
   <head>
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
+    <title>Adobe</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo:800|Permanent+Marker|Overpass+Mono:300,400,700|Open+Sans" rel="stylesheet">
 
-<body>
+    <link href="https://fonts.googleapis.com/css?family=Nobile:700" rel="stylesheet">
 
-DATA VIZZY
-</body>
+    <link rel="shortcut icon" href="favicon.png" />
+    <style>
+      *, body {
+        margin: 0;
+      }
+
+      a { text-decoration: none; }
+
+      h1 {
+        margin: 0 0 0.5em 0;
+        font: 700 3.2em/1.4em "Nobile", sans-serif;
+        text-align: center;
+      }
+
+      p {
+        margin: 1em auto;
+        font: 300 1.06em/1.6em "Overpass Mono", sans-serif;
+        letter-spacing: -0.04em;
+      }
+
+      ul {
+        margin: 1em auto;
+        font: 700 1em/1.6em "Overpass Mono", sans-serif;
+        list-style-type: square;
+      }
+
+        ul li { color: #70b3c4; margin-bottom: 10px; }
+
+      .written {
+        color: #e0735d;
+        font: normal 1.1em 'Permanent Marker';
+      }
+
+      .ud {
+        font-weight: bold;
+        letter-spacing: 0;
+        border-bottom: 3px solid #70B3C4;
+      }
+
+      .slide {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #70B3C4;
+        overflow: hidden;
+      }
+
+        article {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 625px;
+        }
+
+      nav {
+        display: block;
+        position: absolute;
+        top: 68%;
+        left: 49%;
+        transform: translate(-49%, -68%);
+        width: 610px;
+        height: 95px;
+        padding: 25px 0 0 25px;
+        background: url('nav-border.png');
+        background-size: 100% auto;
+        z-index: 1000;
+      }
+
+      .sticky {
+        position: fixed;
+        top: 20px;
+        left: 49%;
+        transform: translate(-49%, 0);
+      }
+
+        nav a {
+          display: inline-block;
+          width: 115px;
+          height: 60px;
+          font: 700 1em/3.8em "Overpass Mono", sans-serif;
+          text-transform: uppercase;
+          background: #fff;
+          color: #e0735d;
+          text-align: center;
+          border-bottom: 5px solid #2e3235;
+        }
+
+        nav a:hover {
+          background: #e0735d;
+          color: #fff;
+        }
+
+      header {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #f0f0f0 url('header-bg.jpg');
+        background-size: 100% auto;
+        background-position: center center;
+        display: table;
+      }
+
+        #splash {
+        }
+
+        #intro {
+          position: absolute;
+          top: 28%;
+          left: 50%;
+          transform: translate(-50%, -28%);
+        }
+
+          #intro h1, #intro p { color: #2e3235; }
+
+      #one {
+        background: #484d51;
+        height: 1980px;
+      }
+
+      #two {
+        background: #35393c;
+        height: 3840px;
+      }
+
+      #three {
+        background: #ddd;
+        height: 1040px;
+      }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function() {
+
+      var nav = $('nav');
+
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 340) {
+          nav.addClass("sticky");
+        } else {
+          nav.removeClass("sticky");
+        }
+
+        // 1. Slide 1
+        if (($(window).scrollTop() > $('#one').position().top-100) && ($(window).scrollTop() < $('#two').position().top-100)) {
+          $('#one-nav').css('background','#e0735d');
+          $('#one-nav').css('color','#fff');
+        } else {
+          $('#one-nav').css('background','#fff');
+          $('#one-nav').css('color','#e0735d');
+        }
+
+        // 2. Slide 2
+        if (($(window).scrollTop() > $('#two').position().top-101) && ($(window).scrollTop() < $('#three').position().top-100)) {
+          $('#two-nav').css('background','#e0735d');
+          $('#two-nav').css('color','#fff');
+        } else {
+          $('#two-nav').css('background','#fff');
+          $('#two-nav').css('color','#e0735d');
+        }
+
+        // 3. Slide 3
+        if ($(window).scrollTop() > $('#three').position().top-101) {
+          $('#three-nav').css('background','#e0735d');
+          $('#three-nav').css('color','#fff');
+        } else {
+          $('#three-nav').css('background','#fff');
+          $('#three-nav').css('color','#e0735d');
+        }
+
+      });
+    });
+    </script>
+
+  </head>
+  <body>
+
+    <header id="splash">
+      <article id="intro">
+        <h1>Everybody deserves<br>an Adobe Education.</h1>
+        <p>How can we get K-12 students to question the world through Creative Cloud?</strong></p>
+      </article>
+
+      <nav>
+        <a href="#one" id="context-nav">Context</a>
+        <a href="#testing" id="testing-nav">Testing</a>
+        <a href="#mvp" id="mvp-nav">Version 1</a>
+        <a href="#post-mvp" id="post-mvp-nav">1.1</a>
+        <a href="#future" id="future-nav">Future</a>
+      </nav>
+
+    </header>
+
+    <div class="slide" id="one">
+    </div>
+
+    <div class="slide" id="two">
+    </div>
+
+    <div class="slide" id="three">
+    </div>
+
+  </body>
 </html>
