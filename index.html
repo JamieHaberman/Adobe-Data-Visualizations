@@ -1,42 +1,45 @@
 <!DOCTYPE html>
   <head>
-    <title>Adobe</title>
+    <title>Adobe Education</title>
     <link href="https://fonts.googleapis.com/css?family=Exo:800|Permanent+Marker|Overpass+Mono:300,400,700|Open+Sans" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Nobile:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nobile,Roboto" rel="stylesheet">
 
-    <link rel="shortcut icon" href="favicon.png" />
     <style>
       *, body {
         margin: 0;
       }
 
-      a { text-decoration: none; }
+      a { text-decoration: underline; }
 
       h1 {
         margin: 0 0 0.5em 0;
-        font: 700 3.2em/1.4em "Nobile", sans-serif;
+        font: 700 1.7em/1.4em "Nobile", sans-serif;
+        text-align: left;
+      }
+
+      h2 {
+        margin: 1em auto;
+        font: 300 1.4em/1.5em "Roboto", sans-serif;
+      }
+
+      h3 {
+        font: 700 0.9em/1.7em "Nobile", sans-serif;
         text-align: center;
       }
 
       p {
         margin: 1em auto;
-        font: 300 1.06em/1.6em "Overpass Mono", sans-serif;
-        letter-spacing: -0.04em;
+        font: 400 1.06em/1.6em "Roboto", sans-serif;
       }
 
       ul {
         margin: 1em auto;
-        font: 700 1em/1.6em "Overpass Mono", sans-serif;
+        font: 700 1em/1.6em "Roboto", sans-serif;
         list-style-type: square;
       }
 
         ul li { color: #70b3c4; margin-bottom: 10px; }
-
-      .written {
-        color: #e0735d;
-        font: normal 1.1em 'Permanent Marker';
-      }
 
       .ud {
         font-weight: bold;
@@ -44,23 +47,30 @@
         border-bottom: 3px solid #70B3C4;
       }
 
+      #logo {
+        position: absolute;
+        top: 20px;  
+        left: 20px;
+        width: 100px;
+        z-index: 100;
+      }
+
       .slide {
         position: relative;
         width: 100vw;
         height: 100vh;
         background: #70B3C4;
-        overflow: hidden;
       }
 
         article {
           position: relative;
           left: 50%;
           transform: translateX(-50%);
-          width: 625px;
+          width: 750px;
         }
 
       nav {
-        display: block;
+        display: none;
         position: absolute;
         top: 68%;
         left: 49%;
@@ -70,7 +80,7 @@
         padding: 25px 0 0 25px;
         background: url('nav-border.png');
         background-size: 100% auto;
-        z-index: 1000;
+        z-index: 100;
       }
 
       .sticky {
@@ -100,36 +110,122 @@
       header {
         position: relative;
         width: 100vw;
-        height: 100vh;
+        height: 105vh;
         background: #f0f0f0 url('header-bg.jpg');
         background-size: 100% auto;
         background-position: center center;
-        display: table;
+        border-bottom: 1px solid #000;
       }
 
-        #splash {
+        header h1 {
+          font: 700 3.2em/1.4em "Nobile", sans-serif;
         }
 
         #intro {
           position: absolute;
-          top: 28%;
-          left: 50%;
-          transform: translate(-50%, -28%);
+          top: 50%;
+          left: 20%;
+          transform: translate(-20%, -50%);
+          width: 580px;
         }
+
+          #intro h2 {
+            padding-right: 80px;
+          }
 
           #intro h1, #intro p { color: #2e3235; }
 
-      #one {
-        background: #484d51;
-        height: 1980px;
+          #intro-pic {
+            position: absolute;
+            top: 45%;
+            right: 20%;
+            transform: translate(20%, -45%);
+            width: 350px;
+          }
+
+      #context {
+        background: #fff url('img/grid.png');
+        background-size: 20px auto;
+        height: 1530px;
       }
 
-      #two {
+        .border {
+          border: 1px solid #000;
+        }
+
+        #title {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translate(-50%, -10px);
+          width: 160px;
+          height: 40px;
+          background: #fff;
+          font: 500 1.2em/2.3em "Nobile", sans-serif;
+          text-align: center;
+          border: 1px solid #000;
+        }
+
+        article#art-budgets {
+          padding-top: 80px;
+        }
+
+        #context img {
+          display: block;
+          margin: auto;
+          width: 100%;
+        }
+
+        #context div {
+          background: #fff;
+        }
+
+        img#art-budgets { width: 800px; }
+
+        #search-terms {
+          position: absolute;
+          margin-top: 50px;
+          left: -135px;
+          width: 380px;
+          height: 755px;
+        }
+
+        #chromebooks {
+          position: absolute;
+          margin-top: 50px;
+          right: -135px;
+          width: 600px;
+          height: 213px;
+        }
+
+        #cloud {
+          position: absolute;
+          top: 975px;
+          right: -135px;
+          width: 600px;
+          height: 363px;
+        }
+
+        #context-conclusion {
+          display: block;
+          position: absolute;
+          top: 1370px;
+          right: -140px;
+          width: 600px;
+          font-size: 1.6em;
+        }
+
+          .source {
+            font-size: 0.8em;
+            margin: -10px 0 0 20px;
+          }
+
+      #context-2 {
         background: #35393c;
         height: 3840px;
       }
 
-      #three {
+      #context-3 {
         background: #ddd;
         height: 1040px;
       }
@@ -181,31 +277,47 @@
 
   </head>
   <body>
+    <img id="logo" src="img/logo.png" alt="Adobe">
 
     <header id="splash">
-      <article id="intro">
-        <h1>Everybody deserves<br>an Adobe Education.</h1>
-        <p>How can we get K-12 students to question the world through Creative Cloud?</strong></p>
-      </article>
+      <div id="intro">
+        <h1>Everybody deserves<br>an Adobe education.</h1>
+        <h2>How can we get K-12 students to question the world through Creative Cloud products?</h2>
+      </div>
+
+      <img id="intro-pic" src="img/1.png" alt="">
 
       <nav>
-        <a href="#one" id="context-nav">Context</a>
-        <a href="#testing" id="testing-nav">Testing</a>
-        <a href="#mvp" id="mvp-nav">Version 1</a>
-        <a href="#post-mvp" id="post-mvp-nav">1.1</a>
-        <a href="#future" id="future-nav">Future</a>
+        <a href="#context" id="context-nav">Context</a>
       </nav>
 
     </header>
 
-    <div class="slide" id="one">
-    </div>
+    <div class="slide" id="context">
+      <div id="title">Context</div>
 
-    <div class="slide" id="two">
-    </div>
+      <article id="art-budgets">
+        <h3>Per Capita Legislative Appropriations To State Arts Agencies<br>(Art Budget per State)</h3>
+        <img id="art-budgets" src="img/art-budgets.png" alt="Art Budgets">
+        <p class="source">Source: <a href="http://nasaa-arts.org/research/funding/" target="_blank">National Assembly of State Arts Agencies</a></p>
 
-    <div class="slide" id="three">
-    </div>
+        <div id="search-terms" class="border" >
+          <img src="img/search-terms.jpg" alt="Search Terms">
+          <p class="source">Source: Google</p>
+        </div>
 
+        <div id="chromebooks" class="border" >
+          <img src="img/chromebooks.jpg" alt="Chromebooks">
+          <p class="source">Source: <a href="https://www.futuresource-consulting.com/Press-K-12-Education-Market-Qtr4-0317.html" target="_blank">Futuresource</a></p>
+        </div>
+
+        <div id="cloud" class="border" >
+          <img src="img/cloud.jpg" alt="Cloud Usage">
+          <p class="source">Source: <a href="https://edworkforce.house.gov/uploadedfiles/reidenberg_testimony_-_supplement_final.pdf" target="_blank">Fordham Law School</a></p>
+        </div>
+
+        <h1 id="context-conclusion">As the spread of technology increases, more students are in creative environments, being exposed to new resources.</h1>
+      </article>
+    </div>
   </body>
 </html>
